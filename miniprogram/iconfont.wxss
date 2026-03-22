@@ -1,0 +1,14 @@
+/* 底部导航图标样式 */
+.tab-icon-svg {
+  width: 44rpx;
+  height: 44rpx;
+  margin-bottom: 4rpx;
+}
+
+.tab-item.active .tab-icon-svg {
+  color: #f5c71a;
+}
+
+.tab-icon-svg path {
+  fill: currentColor;
+}

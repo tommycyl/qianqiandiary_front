@@ -1,0 +1,16 @@
+<!-- 添加日记弹窗 -->
+<view class="pop-up-mask {{showPopUp ? 'show' : ''}}" bindtap="togglePopUp"></view>
+<view class="pop-up-card {{showPopUp ? 'show' : ''}}">
+  <view class="card-content">
+    <view class="form-item">
+      <input model:value="{{title}}" type="text" placeholder="请输入标题，限制最多15字" placeholder-class="placeholder-input" />
+    </view>
+    <view class="form-item">
+      <textarea model:value="{{content}}" placeholder="文本输入框，限制最多200个字" placeholder-class="placeholder-textarea" maxlength="200" style="height: 500rpx;"></textarea>
+    </view>
+    <view class="form-buttons">
+      <button class="create-btn" bindtap="submit">确认</button>
+      <button class="cancel-btn" bindtap="togglePopUp">取消</button>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,114 @@
+/* components/updata.wxss */
+/* 弹出卡片蒙版 */
+.pop-up-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* 半透明黑色蒙版 */
+  z-index: 100; /* 确保蒙版在主页面上方 */
+  display: none; /* 默认隐藏 */
+}
+
+.pop-up-mask.show {
+  display: block; /* 显示蒙版 */
+}
+
+/* 弹出卡片 */
+.pop-up-card {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%; /* 卡片宽度 */
+  height: 50%;
+  background-color: #fef8e3; /* 您设计草图中的背景颜色 */
+  border: 1px solid #ccc; /* 边框 */
+  border-radius: 20px; /* 圆角 */
+  padding: 40rpx;
+  z-index: 101; /* 确保卡片在蒙版上方 */
+  display: none; /* 默认隐藏 */
+}
+
+.pop-up-card.show {
+  display: block; /* 显示卡片 */
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-item {
+  width: 100%;
+  height: 70%;
+  margin-bottom: 20rpx;
+}
+
+.placeholder-input, .placeholder-textarea {
+  color: #999;
+}
+
+
+/* 修改后：例如，更改为浅蓝色的边框和更淡的蓝色背景 */
+.form-item:first-child input {
+  border: 2px solid #b8b1a0; /* 新的边框颜色（淡蓝色） */
+  background-color: #fffcf0; /* 新的背景颜色（爱丽丝蓝） */
+  border-radius: 20rpx;
+  padding: 10rpx 20rpx;
+  height: 60rpx;
+  color: #333; /* 输入文字颜色 */
+}
+/* 文本大输入框 (Textarea) */
+.form-item:nth-child(2) {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30rpx;
+}
+
+.form-item:nth-child(2) {
+  flex: 1;
+  width: 100%;
+  border: 4rpx solid #b8b1a0; /* 统一边框色 */
+  border-radius: 35rpx;
+  padding: 25rpx;
+  box-sizing: border-box;
+  
+  /* 变色处理：同样使用深一度的奶油白 */
+  background-color: #fffcf0; 
+  color: #5d5a52;
+  
+  /* 增加一个内阴影，让它看起来像“陷”在卡片里 */
+  box-shadow: inset 2rpx 2rpx 8rpx rgba(0,0,0,0.05);
+}
+
+.form-buttons {
+  display: flex;
+  /* justify-content: center; */
+  width: 90%;
+  margin-top: 40rpx;
+  position: absolute;
+  bottom: 40rpx;
+}
+
+.create-btn, .cancel-btn {
+  width: 100rpx;
+  height: 80rpx;
+  line-height: 50rpx;
+  border: 1px solid #ccc;
+  border-radius: 30rpx;
+  font-size: 28rpx;
+  margin: 0 10rpx;
+}
+
+.create-btn {
+  background-color: #fef8e3; /* “创建”按钮背景颜色 */
+}
+
+.cancel-btn {
+  background-color: white; /* “取消”按钮背景颜色 */
+}
+

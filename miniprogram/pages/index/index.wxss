@@ -1,0 +1,1027 @@
+page {
+  background-color: #f5f5f5;
+}
+
+.page {
+  min-height: 100vh;
+  background-color: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 顶部导航 */
+.nav {
+  height: 5rem;
+  padding: 0 32rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  position: relative;
+}
+
+.nav-title {
+  font-size: 34rpx;
+  font-weight: 500;
+  color: #333333;
+  margin-top: 2.5rem;
+}
+
+.nav-icon {
+  position: absolute;
+  right: 32rpx;
+  width: 48rpx;
+  height: 48rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-settings {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.icon-chart {
+  font-size: 36rpx;
+}
+
+/* 滚动区域 */
+.scroll {
+  flex: 1;
+  padding: 24rpx 32rpx;
+  box-sizing: border-box;
+}
+
+/* 卡片基础样式 */
+.card {
+  /* height: 10rpx; */
+  background-color: #ffffff;
+  border-radius: 24rpx;
+  margin-bottom: 24rpx;
+}
+
+/* 欢迎卡片 */
+.welcome-card {
+  padding: 32rpx;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(135deg, #fff9e6 0%, #fff5d6 100%);
+}
+
+.welcome-left {
+  margin-right: 24rpx;
+}
+
+.dog-avatar {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 60rpx;
+}
+
+.welcome-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.welcome-title {
+  font-size: 36rpx;
+  font-weight: 600;
+  color: #333333;
+  margin-bottom: 8rpx;
+}
+
+.welcome-date {
+  font-size: 26rpx;
+  color: #999999;
+  margin-bottom: 8rpx;
+}
+
+.welcome-desc {
+  font-size: 26rpx;
+  color: #666666;
+}
+
+/* 操作按钮 */
+.action-row {
+  display: flex;
+  margin-bottom: 32rpx;
+  gap: 24rpx;
+}
+
+.action-btn {
+  flex: 1;
+  height: 120rpx;
+  border-radius: 24rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.action-btn:active{
+  box-shadow: 0 2px 6px rgba(7, 193, 96, 0.2);
+  
+  /* 轻微缩放（模拟按下凹陷，增强互动感） */
+  transform: scale(0.98);
+  
+  /* 可选：背景色加深，进一步强化反馈 */
+  background: #848886;
+}
+.action-primary {
+  background-color: #f5c71a;
+}
+
+.action-secondary {
+  background-color: #ffffff;
+}
+
+.action-icon {
+  width: 40rpx;
+  height: 40rpx;
+  color: #333333;
+  margin-bottom: 4rpx;
+}
+.action-icon-img {
+  width: 40rpx;
+  height: 40rpx;
+  margin-bottom: 8rpx;
+}
+
+.action-text {
+  font-size: 28rpx;
+  color: #333333;
+}
+
+
+
+/* 区块标题 */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16rpx;
+  padding: 0 8rpx;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #333333;
+}
+
+.section-link {
+  display: flex;
+  align-items: center;
+  font-size: 26rpx;
+  color: #999999;
+}
+
+.arrow {
+  margin-left: 8rpx;
+  font-size: 24rpx;
+}
+
+/* 高光时刻卡片 */
+.highlight-card {
+  padding: 24rpx 32rpx;
+}
+
+.highlight-list {
+  margin-bottom: 0rpx;
+}
+
+.highlight-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #f5f5f5;
+}
+
+.highlight-item:last-child {
+  border-bottom: none;
+}
+
+.highlight-icon {
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20rpx;
+  background-color: #f5c71a;
+}
+
+.highlight-icon.book {
+  background-color: #f5c71a;
+}
+
+.highlight-icon.sun {
+  background-color: #c5a5e0;
+}
+
+.highlight-icon-img {
+  width: 55rpx;
+  height: 75rpx;
+}
+
+.highlight-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.highlight-main {
+  font-size: 28rpx;
+  color: #333333;
+  margin-bottom: 4rpx;
+  line-height: 1.5;
+}
+
+.highlight-tag {
+  font-size: 24rpx;
+  color: #999999;
+  /* 核心代码：开启弹性盒模型 */
+  display: -webkit-box;
+  /* 设置盒子的排列方式为垂直 */
+  -webkit-box-orient: vertical;
+  /* 限制显示的行数为 2 行 */
+  -webkit-line-clamp: 1;
+  /* 隐藏超出的部分 */
+  overflow: hidden;
+  /* 处理长单词或连续数字换行 */
+  word-break: break-all;
+  
+  /* 可选：设置行高让排版更美观 */
+  line-height: 1.5; 
+  /* 确保占据父级宽度，否则省略号可能不出现 */
+  width: 70%;
+}
+
+.highlight-img {
+  position: absolute;
+  top: 10rpx;
+  right: 0;
+  width: 50rpx;
+  height: 50rpx;
+  color: #999999;
+}
+
+.see-all-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24rpx 0 8rpx;
+}
+.seeRecord{
+  width: 30rpx;
+  height: 30rpx;
+  color: #aaa7a7;
+  /* padding-top: 10px; */
+}
+
+.arrow-icon {
+  font-size: 28rpx;
+  color: #666666;
+  margin-right: 12rpx;
+}
+
+.see-all-text {
+  font-size: 28rpx;
+  color: #666666;
+}
+
+/* 今日美德践行卡片 */
+.virtue-card {
+  padding: 24rpx 0 32rpx;
+  border-top: 6rpx solid #ffbfa2;
+}
+
+.virtue-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24rpx;
+  margin-bottom: 16rpx;
+}
+
+.virtue-header-left {
+  display: flex;
+  align-items: center;
+}
+
+.virtue-avatar {
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: 36rpx;
+  margin-right: 16rpx;
+}
+
+.virtue-title {
+  font-size: 30rpx;
+  font-weight: 500;
+  color: #333333;
+}
+
+.virtue-stats {
+  display: flex;
+  align-items: center;
+}
+
+.stats-icon {
+  width: 32rpx;
+  height: 32rpx;
+  margin-right: 8rpx;
+}
+
+.stats-text {
+  font-size: 26rpx;
+  color: #999999;
+}
+
+.virtue-divider {
+  height: 2rpx;
+  background-color: #f0f0f0;
+  margin: 0 24rpx 20rpx;
+}
+
+.virtue-body {
+  padding: 0 24rpx;
+}
+
+.virtue-topic {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #ff8a65;
+  display: block;
+  margin-bottom: 12rpx;
+}
+
+.virtue-desc {
+  font-size: 28rpx;
+  color: #666666;
+  line-height: 1.5;
+  display: block;
+  margin-bottom: 20rpx;
+}
+
+.virtue-guide-row {
+  /* display: flex; */
+  align-items: center;
+  /* justify-content: space-between; */
+  padding: 16rpx 0;
+}
+
+.virtue-guide-label {
+  font-size: 28rpx;
+  color: #333333;
+  font-weight: 500;
+}
+
+.guide-arrow {
+  float: right;
+  margin-top: 6rpx;
+  width: 30rpx;
+  height: 30rpx;
+  transform: rotate(0deg);
+  transition: transform 0.3s;
+}
+
+.guide-arrow.up {
+  transform: rotate(180deg);
+}
+
+.virtue-guide-content {
+  padding-top: 8rpx;
+}
+
+.virtue-guide-rigt{
+  float: right;
+  width: 65rpx;
+  font-size: 27rpx;
+}
+
+.guide-subtitle {
+  font-size: 26rpx;
+  color: #999999;
+  display: block;
+  margin-bottom: 16rpx;
+}
+
+.virtue-list {
+  margin-bottom: 16rpx;
+}
+
+.virtue-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 16rpx;
+}
+
+.virtue-badge {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 20rpx;
+  background-color: #ffccbc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24rpx;
+  color: #ffffff;
+  margin-right: 16rpx;
+  flex-shrink: 0;
+}
+
+.virtue-item-text {
+  font-size: 28rpx;
+  color: #555555;
+  line-height: 1.5;
+  padding-top: 4rpx;
+}
+
+.virtue-footer {
+  margin-top: 24rpx;
+  padding: 0 24rpx;
+  display: flex;
+  justify-content: center;
+}
+
+.virtue-check-btn {
+  width: 100%;
+  height: 88rpx;
+  border-radius: 44rpx;
+  border: 2rpx solid #e0e0e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+}
+
+.virtue-check-btn.checked {
+  border-color: #4caf50;
+  background-color: #f1f8e9;
+}
+
+.check-circle {
+  width: 32rpx;
+  height: 32rpx;
+  border-radius: 16rpx;
+  border: 2rpx solid #999999;
+  margin-right: 12rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.check-circle.checked {
+  border-color: #4caf50;
+  background-color: #4caf50;
+}
+
+.check-icon {
+  font-size: 20rpx;
+  color: #ffffff;
+}
+
+.check-text {
+  font-size: 28rpx;
+  color: #666666;
+}
+
+.virtue-check-btn.checked .check-text {
+  color: #4caf50;
+}
+
+/* 愿景板 */
+.vision-scroll {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin-bottom: 32rpx;
+}
+
+.vision-card {
+  width: 320rpx;
+  height: 200rpx;
+  margin-right: 46rpx;
+  border-radius: 20rpx;
+  overflow: hidden;
+}
+
+.vision-card:nth-child(2n) {
+  margin-right: 0;
+}
+
+.vision-img {
+  width: 320rpx;
+  height: 200rpx;
+  background-color: #f0f0f0;
+}
+
+/* 底部留白 */
+.bottom-space {
+  height: 160rpx;
+}
+
+/* 其他 tab 占位 */
+.tab-placeholder {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48rpx;
+}
+
+.placeholder-text {
+  font-size: 28rpx;
+  color: #999999;
+}
+
+/* ========== 日记 tab 日历 1:1 设计 ========== */
+.calendar-card {
+  padding: 28rpx 24rpx 24rpx;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.06);
+}
+
+.calendar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24rpx;
+}
+
+.calendar-header .arrow-btn {
+  width: 64rpx;
+  height: 64rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36rpx;
+  color: #333333;
+  font-weight: 300;
+}
+
+.month-text {
+  flex: 1;
+  text-align: center;
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #333333;
+}
+
+.weekdays-row {
+  display: flex;
+  margin-bottom: 16rpx;
+}
+
+.weekday {
+  flex: 1;
+  text-align: center;
+  font-size: 26rpx;
+  color: #999999;
+}
+
+.calendar-grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.day-cell {
+  width: 14.28%;
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16rpx;
+  margin-bottom: 12rpx;
+  box-sizing: border-box;
+  /* padding: 0 1rpx; */
+  background-color: #f0f0f0;
+}
+
+.day-cell.empty {
+  visibility: hidden;
+  background-color: transparent;
+}
+
+.day-cell.has-record {
+  background-color: #f5c71a !important;
+}
+
+.day-cell.selected:not(.has-record) {
+  /* box-shadow: 0 0 0 3rpx rgba(245, 199, 26, 0.5); */
+  /* 基础背景色 */
+  background-color: #c0b89a; 
+  color: #fff;
+  
+  /* 立体阴影：第一层是外发光，第二层是向下的厚度，第三层是底部的重阴影 */
+  box-shadow: 
+    0 4rpx 0 #c0b89a,         /* 模拟厚度 */
+    0 8rpx 15rpx rgba(0,0,0,0.1); /* 模拟投影 */
+    
+  /* 往上弹起的位移感 */
+  transform: translateY(-4rpx);
+  transition: all 0.2s ease;
+}
+
+.day-cell.selected.has-record {
+  /* box-shadow: 0 0 0 3rpx rgba(0, 0, 0, 0.12); */
+  box-shadow: 
+    0 4rpx 0 #c0b89a,         /* 模拟厚度 */
+    0 8rpx 15rpx rgba(0,0,0,0.1); /* 模拟投影 */
+    
+  /* 往上弹起的位移感 */
+  transform: translateY(-4rpx);
+  transition: all 0.2s ease;
+}
+.legend-seleted{
+  width: 32rpx;
+  height: 32rpx;
+  border-radius: 8rpx;
+  background-color: #c0b89a;
+}
+
+.day-num {
+  font-size: 28rpx;
+  color: #333333;
+}
+
+.day-cell:not(.has-record):not(.empty) .day-num {
+  color: #333333;
+}
+
+.day-dog {
+  width: 55rpx;
+  height: 75rpx;
+}
+
+.calendar-legend {
+  display: flex;
+  align-items: center;
+  gap: 24rpx;
+  margin-top: 16rpx;
+  padding-top: 16rpx;
+  border-top: 1rpx solid #f0f0f0;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8rpx;
+}
+
+.legend-dog {
+  font-size: 28rpx;
+}
+
+.legend-empty {
+  width: 32rpx;
+  height: 32rpx;
+  border-radius: 8rpx;
+  background-color: #e8e8e8;
+}
+
+.legend-text {
+  font-size: 24rpx;
+  color: #999999;
+}
+
+.record-card {
+  position: relative;
+  background-color: #ffffff;
+  border-radius: 24rpx;
+  padding: 24rpx 28rpx;
+  margin-bottom: 20rpx;
+}
+
+.record-head {
+  width: 400rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12rpx;
+}
+
+.record-tag {
+  font-size: 30rpx;
+  padding: 6rpx 0rpx;
+  border-radius: 20rpx;
+  color: #333333;
+}
+
+.record-tag.tag-daily {
+  background-color: #ffe0b2;
+  color: #555555;
+}
+
+.record-tag.tag-growth {
+  background-color: #fff9c4;
+  color: #555555;
+}
+
+.record-icon {
+  font-size: 32rpx;
+}
+
+.record-content {
+  width: 400rpx;
+  font-size: 28rpx;
+  color: #666666;
+  line-height: 1.5;
+  display: block;
+  margin-bottom: 16rpx;
+  /* 核心代码：开启弹性盒模型 */
+  display: -webkit-box;
+  /* 设置盒子的排列方式为垂直 */
+  -webkit-box-orient: vertical;
+  /* 限制显示的行数为 2 行 */
+  -webkit-line-clamp: 1;
+  /* 隐藏超出的部分 */
+  overflow: hidden;
+  /* 处理长单词或连续数字换行 */
+  word-break: break-all;
+  
+  /* 可选：设置行高让排版更美观 */
+  line-height: 1.5; 
+  /* 确保占据父级宽度，否则省略号可能不出现 */
+  width: 70%;
+}
+
+.record-actions {
+  display: flex;
+  align-items: center;
+  gap: 32rpx;
+}
+
+.action-link {
+  display: flex;
+  align-items: center;
+  font-size: 26rpx;
+  color: #999999;
+}
+
+.action-icon {
+  margin-right: 8rpx;
+  font-size: 28rpx;
+}
+
+/* 底部导航 */
+.tabbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 140rpx;
+  background-color: #ffffff;
+  border-top: 1rpx solid #f0f0f0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-bottom: constant(safe-area-inset-bottom);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.tab-item {
+  width: 80rpx;
+  height: 100rpx;
+  /* flex: 1; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10%;
+}
+.tab-item.active {
+  background-color: #fefcf1;
+}
+
+
+.tab-item.active .foot-svg {
+  color: #ddd9cc;
+}
+
+.tab-text {
+  font-size: 20rpx;
+  color: #999999;
+  font-weight: 400;
+}
+
+.tab-text.active {
+  color: #f5c71a;
+}
+
+.safe-bottom {
+  padding-bottom: constant(safe-area-inset-bottom);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+.foot-svg {
+  width:40rpx;
+  height: 40rpx;
+  color: #848886;
+}
+/* 底部留白 */
+.white{
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+  height: 240rpx;
+}
+
+
+/* 弹出增加日记的css */
+
+
+/* 弹出卡片蒙版 */
+.pop-up-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* 半透明黑色蒙版 */
+  z-index: 100; /* 确保蒙版在主页面上方 */
+  display: none; /* 默认隐藏 */
+}
+
+.pop-up-mask.show {
+  display: block; /* 显示蒙版 */
+}
+
+/* 弹出卡片 */
+.pop-up-card {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%; /* 卡片宽度 */
+  height: 54%;
+  background-color: #fef8e3; /* 您设计草图中的背景颜色 */
+  border: 1px solid #ccc; /* 边框 */
+  border-radius: 20px; /* 圆角 */
+  padding: 40rpx;
+  z-index: 101; /* 确保卡片在蒙版上方 */
+  display: none; /* 默认隐藏 */
+}
+
+.pop-up-card.show {
+  display: block; /* 显示卡片 */
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-item {
+  width: 100%;
+  height: 70%;
+  margin-bottom: 20rpx;
+}
+
+.placeholder-input, .placeholder-textarea {
+  color: #999;
+}
+
+
+/* 修改后：例如，更改为浅蓝色的边框和更淡的蓝色背景 */
+.form-item:first-child input {
+  border: 2px solid #b8b1a0; /* 新的边框颜色（淡蓝色） */
+  background-color: #fffcf0; /* 新的背景颜色（爱丽丝蓝） */
+  border-radius: 20rpx;
+  padding: 10rpx 20rpx;
+  height: 60rpx;
+  color: #333; /* 输入文字颜色 */
+}
+/* 文本大输入框 (Textarea) */
+.form-item:nth-child(2) {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30rpx;
+}
+
+.form-item:nth-child(2) {
+  flex: 1;
+  width: 100%;
+  border: 4rpx solid #b8b1a0; /* 统一边框色 */
+  border-radius: 35rpx;
+  padding: 25rpx;
+  box-sizing: border-box;
+  
+  /* 变色处理：同样使用深一度的奶油白 */
+  background-color: #fffcf0; 
+  color: #5d5a52;
+  
+  /* 增加一个内阴影，让它看起来像“陷”在卡片里 */
+  box-shadow: inset 2rpx 2rpx 8rpx rgba(0,0,0,0.05);
+}
+
+.picker-container {
+  padding: 5rpx;
+}
+
+.picker-box {
+  padding: 20rpx;
+  background-color: #fffcf0;
+  border: 1rpx solid #b8b1a0;
+  border-radius: 20rpx;
+  font-size: 25rpx;
+  color: #333;
+}
+
+.picker-value {
+  color: #333; /* 突出显示选中的颜色 */
+  font-weight: bold;
+}
+
+
+.form-buttons {
+  display: flex;
+  /* justify-content: center; */
+  width: 90%;
+  margin-top: 40rpx;
+  position: absolute;
+  bottom: 40rpx;
+}
+
+.create-btn, .cancel-btn {
+  width: 100rpx;
+  height: 80rpx;
+  line-height: 50rpx;
+  border: 1px solid #ccc;
+  border-radius: 30rpx;
+  font-size: 28rpx;
+  margin: 0 10rpx;
+}
+
+.create-btn {
+  background-color: #fef8e3; /* “创建”按钮背景颜色 */
+}
+
+.cancel-btn {
+  background-color: white; /* “取消”按钮背景颜色 */
+}
+
+.diary-icon-img{
+  width: 80rpx;
+  height: 100rpx;
+  position: absolute;
+  right: 30rpx;
+  top: 25rpx;
+  background-color: #f5c71a;
+  border-radius: 10rpx;
+}
+.detail-title{
+  font-size: 35rpx;
+}
+.detail-content{
+  position: absolute;
+  top: 120rpx;
+  left: 50rpx;
+  font-size: 30rpx;
+  width: 85%;
+  word-wrap: break-word;      /* 允许长单词换行 */
+  word-break: break-all;     /* 强制在任意字符间换行（对长数字/英文很有用） */
+  white-space: pre-wrap;     /* 保留换行符，且自动折行 */
+}
+.highlight-date{
+  position: absolute;
+  bottom: 10rpx;
+  right: -10rpx;
+  color: #333;
+  font-size: 25rpx;
+  background-color: #f5c71a;
+  border-radius: 13rpx;
+  padding: 5rpx;
+}
+.record-type{
+  position: absolute;
+  bottom: 20rpx;
+  right: 30rpx;
+  color: #333;
+  font-size: 25rpx;
+  background-color: #f5c71a;
+  border-radius: 10%;
+  padding: 5rpx;
+}
+
+.user_name{
+  margin-top: 20rpx;
+  padding-left: 20rpx;
+  width: 100%;
+  height: 100rpx;
+  background-color: #fff;
+  line-height: 100rpx;
+}
+.quit{
+  margin-top: 20rpx;
+  padding-left: 42%;
+  width: 100%;
+  height: 100rpx;
+  background-color: #fff;
+  color: red;
+  line-height: 100rpx;
+}

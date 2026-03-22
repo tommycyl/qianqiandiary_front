@@ -1,0 +1,146 @@
+page {
+  background-color: #f4f0a5; /* 接近设计稿的淡黄色 */
+}
+
+.page {
+  position: relative;
+  min-height: 100vh;
+  background-color: #f4f0a5;
+  display: flex;
+  flex-direction: column;
+}
+.logindog{
+  position: absolute;
+  top: 12%;
+  right: -18.5%;
+}
+#lottieCanvas {
+  width: 400rpx;  /* 必须有 rpx 或 px 单位 */
+  height: 210rpx;
+  display: block; /* 确保它是块级元素 */
+}
+
+/* 顶部状态栏占位，简单适配 iOS 效果 */
+.status-bar {
+  height: 80rpx;
+}
+
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* “登录”标题大致在屏幕中上部 */
+.title {
+  margin-top: 220rpx;
+  margin-bottom: 80rpx;
+  font-size: 44rpx;
+  font-weight: 700;
+  color: #000000;
+}
+
+.form {
+  width: 100%;
+  padding: 0 48rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input {
+  width: 100%;
+  height: 96rpx;
+  margin-bottom: 32rpx;
+  padding: 0 28rpx;
+  border-radius: 20rpx;
+  background-color: #ffffff;
+  box-sizing: border-box;
+}
+
+.input-placeholder {
+  color: #b3b3b3;
+  font-size: 28rpx;
+}
+
+.login-btn {
+  display: block;
+  width: 100%;
+  height: 96rpx;
+  margin-top: 12rpx;
+  margin-bottom: 15rpx;
+  padding: 0;
+  box-sizing: border-box;
+  border-radius: 999rpx;
+  background-color: #f1cfe4; /* 接近设计稿按钮粉色 */
+  color: #000000;
+  font-size: 32rpx;
+  line-height: 96rpx;
+  text-align: center;
+  border: none;
+}
+.ortext{
+  font-size: 35rpx;
+  color: #9e9e9e;
+  margin-bottom: 15rpx;
+}
+.wxlogin-btn{
+  display: block;
+  width: 100%;
+  height: 96rpx;
+  margin-top: 0rpx;
+  margin-bottom: 44rpx;
+  padding: 0;
+  box-sizing: border-box;
+  border-radius: 999rpx;
+  background-color: #dfff66; /* 接近设计稿按钮粉色 */
+  color: #000000;
+  font-size: 32rpx;
+  line-height: 96rpx;
+  text-align: center;
+  border: none;
+}
+
+.register-row {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.register-text {
+  font-size: 26rpx;
+  color: #000000;
+}
+
+.register-link {
+  font-size: 26rpx;
+  color: #00a0e9;
+}
+.header{
+  margin-left: 20px;
+}
+.header image{
+  width: 400rpx;
+}
+
+.footer {
+  padding: 0 40rpx 32rpx;
+  display: flex;
+  justify-content: center;
+}
+
+.footer-text {
+  font-size: 22rpx;
+  color: #cfcfcf;
+}
+
+/* 兼容 iPhone 底部安全区 */
+.safe-bottom {
+  padding-bottom: calc(32rpx + constant(safe-area-inset-bottom));
+  padding-bottom: calc(32rpx + env(safe-area-inset-bottom));
+}
+

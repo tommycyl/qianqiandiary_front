@@ -1,0 +1,268 @@
+<view class="page">
+  <!-- 顶部导航（标题随 tab 切换） -->
+  <view class="nav">
+    <text class="nav-title">{{navTitle}}</text>
+  </view>
+
+  <!-- 首页内容 -->
+  <scroll-view wx:if="{{currentTab === 'home'}}" class="scroll" scroll-y="true" enhanced="true" show-scrollbar="false">
+    <!-- 欢迎卡片 -->
+    <view class="card welcome-card">
+      <view class="welcome-left">
+        <image class="dog-avatar" src="/assets/images/hello.png" mode="aspectFit" />
+      </view>
+      <view class="welcome-right">
+        <text class="welcome-title">{{username}}欢迎回来</text>
+        <text class="welcome-date">{{currentDate}}</text>
+        <text class="welcome-desc">每一个小成就都值得被记录。</text>
+      </view>
+    </view>
+
+    <!-- 操作按钮 -->
+    <view class="action-row">
+      <view class="action-btn action-primary" bindtap="togglePopUp">
+        <image class="action-icon" src="/assets/images/plus.svg" mode="" />
+        <text class="action-text">记录日记</text>
+      </view>
+      <view class="action-btn action-secondary" bindtap="onStatistics">
+        <image class="action-icon-img" src="/assets/images/tongji.svg" mode="aspectFit" />
+        <text class="action-text">统计</text>
+      </view>
+    </view>
+
+    <!-- 高光时刻 -->
+    <view class="section-header">
+      <text class="section-title">今日日记</text>
+      <view class="section-link" bindtap="onTabTap" data-tab="diary">
+        <text>查看全部</text>
+        <text class="arrow">></text>
+      </view>
+    </view>
+
+    <view class="card highlight-card">
+      <view class="highlight-list">
+        <view wx:if="{{highlights.length === 0}}">还未有记录，快去创建今天的日记吧</view>
+        <view class="highlight-item" wx:for="{{highlights}}" wx:key="id" bindtap="onHighlightTap" wx:if="{{index < 2 || showAllHighlights}}" data-id="{{item.id}}">
+          <view class="highlight-icon {{item.iconClass}}">
+            <image class="highlight-icon-img" src="https://pic.tommy.xx.kg/dogs/狗{{index+32}}.png" mode="aspectFit" />
+          </view>
+          <view class="highlight-content">
+            <text class="highlight-main">{{item.title}}</text>
+            <text class="highlight-tag">{{item.content}}</text>
+          </view>
+          <text class="highlight-date">{{array[item.type]}}</text>
+
+          <image class="highlight-img" src="/assets/images/{{index+1}}.svg" mode="" />
+        </view>
+      </view>
+      <view class="see-all-row" bindtap="onToggleAllRecords" wx:if="{{highlights.length>2}}">
+        <view wx:if="{{!showAllHighlights}}">
+          <text class="see-all-text">查看今日全部记录</text>
+        </view>
+        <view wx:if="{{showAllHighlights}}">
+          <image class="seeRecord" src="/assets/images/down.svg" alt="" />
+          <text class="see-all-text">收起</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 今日美德践行卡片 -->
+    <view class="card virtue-card">
+      <view class="virtue-header">
+        <view class="virtue-header-left">
+          <image class="virtue-avatar" src="/assets/images/sweet.svg" mode="aspectFit" />
+          <text class="virtue-title">今日美德践行</text>
+        </view>
+        <view class="virtue-stats" bindtap="onVirtueStats">
+          <image class="stats-icon" src="/assets/images/stat.svg" mode="aspectFit" />
+          <text class="stats-text">统计</text>
+        </view>
+      </view>
+
+      <view class="virtue-divider"></view>
+
+      <view class="virtue-body">
+        <text class="virtue-topic">{{currentVirtue.name}}</text>
+        <text class="virtue-desc">{{currentVirtue.description}}</text>
+
+        <view class="virtue-guide-row" bindtap="toggleGuide">
+          <text class="virtue-guide-label">点击查看行动指南</text>
+          <image class="guide-arrow {{showGuide ? 'up' : ''}}" src="/assets/images/down.svg" mode="" />
+          <text class="virtue-guide-rigt">{{!showGuide ? '展开' : '收起' }}</text>
+        </view>
+
+        <view class="virtue-guide-content" wx:if="{{showGuide}}">
+          <text class="guide-subtitle">{{currentVirtue.name}} · 行动准则</text>
+          <view class="virtue-list">
+            <view class="virtue-item" wx:for="{{currentVirtue.guidelines}}" wx:key="index">
+              <view class="virtue-badge">{{index + 1}}</view>
+              <text class="virtue-item-text">{{item}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <view class="virtue-footer">
+        <view class="virtue-check-btn {{isChecked ? 'checked' : ''}}" bindtap="{{isChecked ? '' : 'onCheckVirtue'}}">
+          <view class="check-circle {{isChecked ? 'checked' : ''}}">
+            <text class="check-icon" wx:if="{{isChecked}}">✓</text>
+          </view>
+          <text class="check-text">{{isChecked ? '今日已践行' : '标记今日已践行'}}</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 我的愿景板 -->
+    <view class="section-header">
+      <text class="section-title">所有愿景板</text>
+      <view class="section-link" bindtap="onViewAllVisions">
+        <text>查看我的愿景板</text>
+        <text class="arrow">></text>
+      </view>
+    </view>
+
+    <scroll-view enable-flex class="vision-scroll" scroll-x="true" show-scrollbar="false">
+      <view class="vision-card" wx:for="{{visions}}" wx:key="id" bindtap="onVisionTap" data-id="{{item.id}}">
+        <image class="vision-img" src="{{item.image}}" mode="aspectFill" />
+      </view>
+    </scroll-view>
+
+    <!-- 底部留白 -->
+    <view class="white">到底了~</view>
+    <!-- 添加日记弹窗 -->
+    <view class="pop-up-mask {{showPopUp ? 'show' : ''}}" bindtap="togglePopUp"></view>
+    <view class="pop-up-card {{showPopUp ? 'show' : ''}}">
+      <view class="card-content">
+        <view class="form-item">
+          <input model:value="{{title}}" type="text" placeholder="请输入标题，限制最多15字" placeholder-class="placeholder-input" />
+        </view>
+        <view class="form-item">
+          <textarea model:value="{{content}}" placeholder="文本输入框，限制最多200个字" placeholder-class="placeholder-textarea" maxlength="200" style="height: 500rpx;"></textarea>
+        </view>
+        <view class="picker-container">
+          <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+            <view class="picker-box">
+              请选择日记类型：<text class="picker-value">{{array[index]}}</text>
+            </view>
+          </picker>
+        </view>
+        <view class="form-buttons">
+          <button class="create-btn" bindtap="submit">确认</button>
+          <button class="cancel-btn" bindtap="togglePopUp">取消</button>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+
+  <!-- 日记内容 -->
+<scroll-view wx:if="{{currentTab === 'diary'}}" class="scroll" scroll-y="true" enhanced="true" show-scrollbar="false">
+    <view class="card calendar-card">
+      <view class="calendar-header">
+        <view class="arrow-btn" bindtap="prevMonth">{{"<<"}}</view>
+        <text class="month-text">{{calendarYear}}年 {{calendarMonthName}}</text>
+        <view class="arrow-btn" bindtap="nextMonth">{{">>"}}</view>
+      </view>
+      <view class="weekdays-row">
+        <text class="weekday" wx:for="{{weekdays}}" wx:key="*this">{{item}}</text>
+      </view>
+      <view class="calendar-grid">
+        <view class="day-cell {{!item.value ? 'empty' : ''}} {{item.hasRecord ? 'has-record' : ''}} {{item.value === selectedDay ? 'selected' : ''}}" bindtap="onSelectDay" data-day="{{item.value}}" wx:for="{{daysWithStatus}}" wx:key="index">
+
+          <block wx:if="{{item.value > 0}}">
+            <block wx:if="{{item.hasRecord}}">
+              <image class="day-dog" src="https://pic.tommy.xx.kg/dogs/{{item.value}}.png" mode="" />
+            </block>
+            <text wx:else class="day-num">{{item.value}}</text>
+          </block>
+        </view>
+      </view>
+      <view class="calendar-legend">
+        <view class="legend-item">
+          <image class="day-dog" src="https://pic.tommy.xx.kg/dogs/1.png" mode="" />
+          <text class="legend-text">有记录</text>
+        </view>
+        <view class="legend-item">
+          <view class="legend-empty"></view>
+          <text class="legend-text">无记录</text>
+        </view>
+        <view class="legend-item">
+          <view class="legend-seleted"></view>
+          <text class="legend-text">选中</text>
+        </view>
+      </view>
+    </view>
+    <view class="section-header">
+      <text class="section-title">成功记录</text>
+    </view>
+    <view class="record-card" wx:for="{{highlights}}" wx:key="id" bindtap="onshowdetail" data-item="{{item}}">
+      <view class="record-head">
+        <view class="record-tag {{item.tagClass}}">{{item.title}}</view>
+      </view>
+      <text class="record-type">{{array[item.type]}}</text>
+      <image class="diary-icon-img" src="https://pic.tommy.xx.kg/dogs/狗{{index+32}}.png" mode="" />
+      <text class="record-content">{{item.content}}</text>
+      <view class="record-actions">
+        <view class="action-link" catch:tap="onEditRecord" data-id="{{item.id}}" data-title="{{item.title}}" data-content="{{item.content}}" data-index="{{index}}">
+          <text class="action-icon">✎</text>
+          <text>编辑</text>
+        </view>
+        <view class="action-link" catch:tap="onDeleteRecord" data-id="{{item.id}}" data-index="{{index}}">
+          <text class="action-icon">🗑</text>
+          <text>删除</text>
+        </view>
+      </view>
+    </view>
+    <view wx:if="{{showdetail}}">
+      <view class="pop-up-mask {{showdetail ? 'show' : ''}}" bindtap="closedetail"></view>
+      <view class="pop-up-card {{showdetail ? 'show' : ''}}">
+        <view class="card-content">
+          <view class="detail-title">
+            <text>{{diary.title}}</text>
+          </view>
+          <view class="detail-content">
+            <text class="detail-text">{{diary.content}}</text>
+          </view>
+          <view class="form-buttons">
+            <button class="cancel-btn" bindtap="closedetail">关闭</button>
+          </view>
+        </view>
+      </view>
+    </view>
+<update wx:if="{{showUpdate}}" title='{{editingTitle}}' content='{{editingContent}}' bind:close="closeUpdate" bind:updateDiary='updateDiary' index='{{editingindex}}' diaryid='{{editingid}}' type='{{type}}'></update>
+<view class="bottom-space"></view>
+</scroll-view>
+<!-- 愿景跳转页面 -->
+<scroll-view wx:if="{{currentTab === 'vision'}}" class="scroll" scroll-y="true">
+  <vision></vision>
+</scroll-view>
+<!-- 我的-页面 -->
+<scroll-view wx:if="{{currentTab === 'mine'}}" class="scroll" scroll-y="true">
+  <view class="mine_detail">
+  <view class="user_name">用户：{{username}}</view>
+  <view class="quit" bind:tap="quit">退出登录</view>
+  </view>
+</scroll-view>
+<!-- 底部导航（固定，点击只切换上方内容） -->
+<view class="tabbar safe-bottom">
+  <view class="tab-item {{currentTab === 'home' ? 'active' : ''}}" bindtap="onTabTap" data-tab="home">
+    <image class="foot-svg" src="/assets/images/home.svg" mode="" />
+    <text class="tab-text {{currentTab === 'home' ? 'active' : ''}}">首页</text>
+  </view>
+  <view class="tab-item {{currentTab === 'diary' ? 'active' : ''}}" bindtap="onTabTap" data-tab="diary">
+    <image class="foot-svg" src="/assets/images/diary.svg" mode="" />
+    <text class="tab-text {{currentTab === 'diary' ? 'active' : ''}}">日记</text>
+  </view>
+  <view class="tab-item {{currentTab === 'virtue' ? 'active' : ''}}" bindtap="onVirtueStats" data-tab="virtue">
+    <image class="foot-svg" src="/assets/images/virtue.svg" mode="" />
+    <text class="tab-text {{currentTab === 'virtue' ? 'active' : ''}}">美德</text>
+  </view>
+  <view class="tab-item {{currentTab === 'vision' ? 'active' : ''}}" bindtap="onTabTap" data-tab="vision">
+    <image class="foot-svg" src="/assets/images/vision.svg" mode="" />
+    <text class="tab-text {{currentTab === 'vision' ? 'active' : ''}}">愿景</text>
+  </view>
+  <view class="tab-item {{currentTab === 'mine' ? 'active' : ''}}" bindtap="onTabTap" data-tab="mine">
+    <image class="foot-svg" src="/assets/images/mine.svg" mode="" />
+    <text class="tab-text {{currentTab === 'mine' ? 'active' : ''}}">我的</text>
+  </view>
+</view>
+</view>

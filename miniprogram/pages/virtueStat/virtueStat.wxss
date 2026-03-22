@@ -1,0 +1,319 @@
+/* 全局容器样式 */
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f8f8f8;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  padding: 20rpx 0;
+  z-index: 1;
+}
+
+/* 顶部标题栏 */
+.header {
+  height: 88rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20rpx;
+}
+
+.page-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+/* 主体内容区域 */
+.content {
+  flex: 1;
+  padding: 0 40rpx;
+  padding-bottom: 160rpx; /* 为 tabbar 留出空间 */
+}
+
+/* 卡片通用样式 */
+.card {
+  background-color: #fff;
+  border-radius: 20rpx;
+  padding: 40rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 0 4rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 30rpx;
+}
+
+.card-title {
+  font-size: 28rpx;
+  color: #666;
+  display: block;
+}
+
+/* 连续天数卡片特有样式 */
+.streak-num {
+  font-size: 100rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10rpx;
+  display: block;
+}
+
+.streak-sub {
+  font-size: 24rpx;
+  color: #999;
+  display: flex;
+  align-items: center;
+}
+
+.streak-growth {
+  color: #4caf50;
+  display: flex;
+  align-items: center;
+  margin-left: 10rpx;
+}
+
+/* 分类分布卡片特有样式 */
+.card-title-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-title-group .card-title {
+  font-weight: bold;
+  color: #333;
+  font-size: 32rpx;
+  margin-bottom: 5rpx;
+}
+
+.card-subtitle {
+  font-size: 24rpx;
+  color: #999;
+}
+
+/* 环形图及图例部分 */
+.chart-section {
+  margin-bottom: 40rpx;
+}
+
+.ring-chart-container {
+  width: 200px; /* canvas 的逻辑像素，在 js 中会转换 */
+  height: 200px;
+  margin: 0 auto 30rpx;
+  position: relative;
+  z-index: 1;
+}
+
+.ring-chart {
+  width: 100%;
+  height: 100%;
+}
+
+.chart-center-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.total-count {
+  font-size: 48rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.legend-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.legend-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+  font-size: 26rpx;
+}
+
+.legend-info {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.dot {
+  width: 16rpx;
+  height: 16rpx;
+  border-radius: 50%;
+  margin-right: 15rpx;
+}
+
+.name {
+  color: #333;
+}
+
+.legend-stats {
+  display: flex;
+  align-items: center;
+}
+
+.count {
+  color: #999;
+  width: 60rpx;
+  text-align: right;
+  margin-right: 20rpx;
+}
+
+.percentage {
+  font-weight: bold;
+  width: 80rpx;
+  text-align: right;
+}
+
+/* 高频提示框 */
+.tip-box {
+  background-color: #fffbd2;
+  border-radius: 12rpx;
+  padding: 20rpx;
+}
+
+.tip-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10rpx;
+}
+
+.tip-title {
+  font-size: 26rpx;
+  font-weight: bold;
+  color: #e6a23c;
+  margin-left: 10rpx;
+}
+
+.tip-desc {
+  font-size: 24rpx;
+  color: #a0a0a0;
+  line-height: 1.4;
+  display: block;
+}
+
+/* 底部导航栏 */
+.tabbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 120rpx;
+  background-color: #fff;
+  display: flex;
+  border-top: 1rpx solid #e0e0e0;
+  z-index: 10;
+}
+
+.tabbar-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.tabbar-icon-box {
+  margin-bottom: 5rpx;
+}
+
+.tabbar-text {
+  font-size: 20rpx;
+  color: #999;
+}
+
+/* 激活项样式 */
+.tabbar-item.active {
+  border-radius: 20rpx 20rpx 0 0; /* 模拟圆角背景 */
+}
+
+.tabbar-item.active .tabbar-text {
+  color: #fdd835;
+  font-weight: bold;
+}
+
+/* 使用 CSS 伪元素绘制图标 */
+
+/* 火焰图标 */
+.icon-fire {
+  width: 32rpx;
+  height: 32rpx;
+  position: relative;
+  overflow: hidden;
+}
+.icon-fire::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, #ff8a65 20%, transparent 60%);
+  transform: rotate(-15deg);
+  border-radius: 30% 60% 30% 50% / 60% 30% 60% 40%;
+}
+.icon-fire::after {
+  content: '';
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  background: radial-gradient(circle at center, #ffb74d 30%, transparent 70%);
+  left: 10%;
+  top: 10%;
+  transform: rotate(20deg);
+  border-radius: 40% 60% 30% 50% / 60% 40% 60% 50%;
+}
+
+/* 向上箭头 */
+.icon-up-arrow {
+  width: 20rpx;
+  height: 20rpx;
+  border-left: 3rpx solid #4caf50;
+  border-top: 3rpx solid #4caf50;
+  transform: rotate(45deg);
+  margin-right: 5rpx;
+}
+
+/* 饼图图标 */
+.icon-pie-chart {
+  width: 32rpx;
+  height: 32rpx;
+  border-radius: 50%;
+  position: relative;
+  background: conic-gradient(
+    #fdd835 0% 30%,
+    #ffb3ba 30% 60%,
+    #81c784 60% 85%,
+    #e0cda7 85% 100%
+  );
+  box-shadow: 0 0 0 1rpx #e0e0e0;
+}
+.icon-pie-chart::after {
+  content: '';
+  position: absolute;
+  width: 40%;
+  height: 40%;
+  background-color: #fff;
+  border-radius: 50%;
+  top: 30%;
+  left: 30%;
+}
+
+/* 星星图标 */
+.icon-star {
+  width: 24rpx;
+  height: 24rpx;
+  background: conic-gradient(#fdd835 0% 10%, #e6a23c 10% 20%, #fdd835 20% 30%, #e6a23c 30% 40%, #fdd835 40% 50%, #e6a23c 50% 60%, #fdd835 60% 70%, #e6a23c 70% 80%, #fdd835 80% 90%, #e6a23c 90% 100%);
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}

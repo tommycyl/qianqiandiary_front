@@ -1,0 +1,30 @@
+<!--components/vision/vision.wxml-->
+<view class="container">
+  <view wx:if="{{vision}}" class="visions" wx:for="{{vision}}" wx:key="index">
+    <image class="vision_image" src="{{visions[item.type].image}}" mode="aspectFill"></image>
+    <text class="vision_text">{{item.text}}</text>
+  </view>
+  <text class="empty_title" wx:if="{{!vision}}">快来创建属于自己的愿景吧</text>
+</view>
+<button class="creat_vison" bind:tap="creat_vison">创建</button>
+
+<!-- 创建愿景弹窗 -->
+<view class="pop-up-mask {{showPopUp ? 'show' : ''}}" bindtap="togglePopUp"></view>
+<view class="pop-up-card {{showPopUp ? 'show' : ''}}">
+  <view class="card-content">
+    <view class="form-item">
+      <input model:value="{{text}}" type="text" placeholder="请输入标题，限制最多15字" placeholder-class="placeholder-input" maxlength="20" />
+    </view>
+    <view class="picker-container">
+      <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+        <view class="picker-box">
+          请选择日记类型：<text class="picker-value">{{array[index]}}</text>
+        </view>
+      </picker>
+    </view>
+    <view class="form-buttons">
+      <button class="create-btn" bindtap="submit">确认</button>
+      <button class="cancel-btn" bindtap="togglePopUp">取消</button>
+    </view>
+  </view>
+</view>

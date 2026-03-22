@@ -1,0 +1,9 @@
+{
+  "navigationStyle": "custom",
+  "backgroundColor": "#f7f7f7",
+  "usingComponents": {
+    "update": "/components/update/update",
+    "vision": "/components/vision/vision"
+  }
+}
+

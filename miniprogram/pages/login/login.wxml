@@ -1,0 +1,42 @@
+<view class="page">
+  <!-- 自定义状态栏占位，隐藏系统导航栏后用于留白 -->
+  <view class="status-bar"></view>
+  <view class="logindog" style="display:flex; justify-content:center;">
+    <canvas class="lottieCanvas" id="lottieCanvas" type="2d"></canvas>
+  </view>
+  <!-- 主体内容 -->
+  <view class="content">
+    <text class="title">登录</text>
+
+    <view class="form">
+      <input  class="input" placeholder="输入用户名" placeholder-class="input-placeholder" bindinput="onUsernameInput" />
+      <input
+        class="input"
+        password="true"
+        placeholder="输入密码"
+        placeholder-class="input-placeholder"
+        bindinput="onPasswordInput"
+      />
+
+      <view class="login-btn" bindtap="onLoginTap">登录</view>
+      <text class="ortext">or</text>
+      <view class="wxlogin-btn" bindtap="onWxLoginTap">微信授权一键登录</view>
+      <view class="register-row">
+        <text class="register-text">没有账号?</text>
+        <text class="register-link" bindtap="onRegisterTap"> 注册</text>
+      </view>
+    </view>
+  </view>
+  <view class="header">
+    <image src="/assets/images/dog.svg" mode=""/>
+  </view>
+  
+
+  <!-- 底部协议 -->
+  <view class="footer safe-bottom">
+    <text class="footer-text">
+      登录/注册表示您同意《用户协议》和《隐私政策》
+    </text>
+  </view>
+</view>
+

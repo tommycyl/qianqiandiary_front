@@ -1,0 +1,68 @@
+<view class="container">
+  <view class="content">
+    <view class="card streak-card">
+      <view class="card-header">
+        <text class="card-title">连续天数</text>
+        <view class="icon-fire"></view>
+      </view>
+      <view class="card-body">
+        <text class="streak-num">{{streakDays}}</text>
+        <view class="streak-sub">
+          <text>坚持记录中...</text>
+          <!-- <text class="streak-growth">
+            <view class="icon-up-arrow"></view>
+          </text> -->
+        </view>
+      </view>
+    </view>
+
+    <view class="card chart-card">
+      <view class="card-header">
+        <view class="card-title-group">
+          <text class="card-title">分类分布</text>
+          <text class="card-subtitle">成功事件类型占比</text>
+        </view>
+        <view class="icon-pie-chart"></view>
+      </view>
+
+      <view class="card-body chart-section">
+        <view class="ring-chart-container">
+          <canvas type="2d" id="ringChart" class="ring-chart"></canvas>
+          <view class="chart-center-text">
+            <text class="total-count">{{totalCount}}</text>
+          </view>
+        </view>
+
+        <view class="legend-list">
+          <view class="legend-item" wx:for="{{chartData}}" wx:key="name">
+            <view class="legend-info">
+              <view class="dot" style="background-color: {{item.color}};"></view>
+              <text class="name">{{item.name}}</text>
+            </view>
+            <view class="legend-stats">
+              <text class="count">{{item.count}}</text>
+              <text class="percentage" style="color: {{item.percentageColor || '#333'}};">{{item.percentage}}%</text>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <view class="tip-box">
+        <view class="tip-header">
+          <view class="icon-star"></view>
+          <text class="tip-title">高频打卡类型</text>
+        </view>
+        <text class="tip-desc">{{chartData[mosttype].name}}就是你最常记录的美德，继续保持这份热情！</text>
+      </view>
+    </view>
+  </view>
+  
+  <!-- <view class="tabbar">
+    <view class="tabbar-item {{item.active ? 'active' : ''}}" wx:for="{{tabbarItems}}" wx:key="text">
+      <view class="tabbar-icon-box">
+        <icon type="{{item.iconType}}" size="22" color="{{item.active ? '#fdd835' : '#999'}}" />
+      </view>
+      <text class="tabbar-text">{{item.text}}</text>
+    </view>
+  </view> -->
+</view>
